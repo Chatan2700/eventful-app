@@ -3,14 +3,15 @@ import EventCard from "@/components/EventCard";
 import React from "react";
 import { IEvent } from "@/database";
 import { cacheLife } from "next/cache";
+import events from "@/lib/constants";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const Page = async () => {
   "use cache";
   cacheLife("hours"); //cache for hours
-  const response = await fetch(`${BASE_URL}/api/events`); //use ennv var for fetching the GET api endpoint
-  const { events } = await response.json(); // extract and destructure the events from the response
+  // const response = await fetch(`${BASE_URL}/api/events`);
+  // const { events } = await response.json();
 
   return (
     <section>
